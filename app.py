@@ -32,7 +32,7 @@ async def on_message(message):
     if message.content.startswith("!timings"):
         times = timings.read_text().split("\n")[1:-1]
         times = [float(t) for t in times]
-        await message.channel.reply(f"Average response time: {sum(times) / len(times)}")
+        await message.reply(f"Average response time: {sum(times) / len(times)}")
         return
 
     if message.content.startswith("!prompt"):
@@ -41,6 +41,6 @@ async def on_message(message):
 
     # Ignore messages that don't contain the bot's name
     if f"<@{client.user.id}>" in message.content.lower():
-        await message.channel.reply(generate_answer(message, client, llm))
+        await message.reply(generate_answer(message, client, llm))
 
 client.run(TOKEN)
