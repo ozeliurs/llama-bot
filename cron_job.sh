@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIRECTORY=/home/ozeliurs/discord-bot
+DIRECTORY=/home/ozeliurs/llama-bot
 
 echo "Running cron job"
 
