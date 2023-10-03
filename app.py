@@ -32,6 +32,9 @@ async def on_message(message):
     if message.content.startswith("!timings"):
         times = timings.read_text().split("\n")[1:-1]
         times = [float(t) for t in times]
+        if len(times) == 0:
+            await message.reply("No timings recorded.")
+            return
         await message.reply(f"Average response time: {sum(times) / len(times)}")
         return
 
