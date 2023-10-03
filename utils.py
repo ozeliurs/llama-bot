@@ -55,9 +55,11 @@ async def generate_answer(message: discord.Message, client: discord.Client, llam
     return response
 
 
-async def record_time(time: float, path="timings.csv"):
+async def record_time(start: float, path="timings.csv"):
     """
     Records a time to a CSV file.
     """
+    timing = str(time.perf_counter() - start)
+
     with open(path, "a") as f:
-        f.write(f"{time}\n")
+        f.write(f"{timing}\n")
