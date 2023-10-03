@@ -44,6 +44,6 @@ async def on_message(message):
 
     # Ignore messages that don't contain the bot's name
     if f"<@{client.user.id}>" in message.content.lower():
-        await message.reply(generate_answer(message, client, llm))
+        await message.reply(await generate_answer(message, client, llm))
 
 client.run(TOKEN)
