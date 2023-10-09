@@ -21,6 +21,9 @@ async def generate_prompt(
     async for message in message.channel.history(limit=discord_message_history_count):
         message_prompt.append(f"{message.author.name}: {message.content}")
 
+    # Reverse the message history
+    message_prompt = message_prompt[::-1]
+
     # Make the prompt a single string
     message_prompt = "\n".join(message_prompt)
 
