@@ -22,7 +22,7 @@ async def generate_prompt(
         message_prompt.append(f"{message.author.name}: {message.content}")
 
     # Reverse the message history
-    message_prompt = message_prompt[::-1]
+    message_prompt = list(reversed(message_prompt))
 
     # Make the prompt a single string
     message_prompt = "\n".join(message_prompt)
