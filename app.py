@@ -42,6 +42,9 @@ async def on_message(message):
         await message.reply(bot_prompt)
         return
 
+    if message.content.startswith("!github"):
+        await message.reply("https://github.com/ozeliurs/llama-bot")
+
     # Ignore messages that don't contain the bot's name
     if f"<@{client.user.id}>" in message.content.lower():
         await message.reply(await generate_answer(message, client, llm))
